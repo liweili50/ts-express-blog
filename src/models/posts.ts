@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose"
 import dayjs from 'dayjs'
 import { Converter } from 'showdown'
-
+import { PostSchema } from "types"
 const converter = new Converter()
 
 const postSchema = new Schema({
@@ -51,6 +51,10 @@ const postSchema = new Schema({
 });
 
 const Post = model('Post', postSchema);
+
+export function createPost(post:PostSchema): Promise<any> {
+  return Post.create(post)
+}
 
 export function syncPostsFromGithub(list: []): Promise<any> {
   return Post.insertMany(list)
