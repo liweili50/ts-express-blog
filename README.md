@@ -1,4 +1,4 @@
-# Express TypeScript Test
+# TypeScript Express Blog
 
 To run in development mode
 
